@@ -13,10 +13,25 @@
         </swiper>
     </view>
 
-    <!-- 导航区域 -->
+    <!-- 中间导航区域 -->
     <view class="nav-container">
-        <navigator class="nav-inner" wx:for="{{catesList}}" wx:key="name" open-type="navigate">
-            <img src="{{item.image_src}}" mode="widthFix" />
+        <navigator class="nav-inner" wx:for="{{catesList}}" wx:key="name">
+            <image src="{{item.image_src}}" mode="widthFix" />
         </navigator>
+    </view>
+    
+    <!-- 楼层区域 -->
+    <view class="floor-container">
+        <view class="floor-inner" wx:for="{{floorList}}" wx:for-item="item1" wx:for-index="index1" wx:key="name">
+            <view class="floor-title">
+                <image src="{{item1.floor_title.image_src}}" mode="widthFix"/>
+            </view>
+            <view class="floor-list">
+                <navigator wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name">
+                    <image src="{{item2.image_src}}" mode="{{index2===0?'widthFix':'scaleToFill'}}" />
+                </navigator>
+            </view>
+
+        </view>
     </view>
 </view>

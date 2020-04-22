@@ -6,7 +6,8 @@ Page({
     //初始化轮播图数据
     swiperList: [],
     //初始化导航数据
-    catesList: []
+    catesList: [],
+    floorList: []
 
   },
   //options(Object)
@@ -23,6 +24,7 @@ Page({
     // });
     this.getswiperList();
     this.getcatesList();
+    this.getfloorList();
   },
 
   // 获取轮播数据
@@ -44,6 +46,15 @@ Page({
         });
       });
   },
+  //获取楼层数据
+  getfloorList(){
+    request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata' })
+      .then(res => {
+        this.setData({
+          floorList: res.data.message
+        });
+      });
+  }
 
 
 
