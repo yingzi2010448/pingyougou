@@ -1,0 +1,16 @@
+.swiper-container {
+  height: 340rpx;
+}
+.swiper-container navigator .swiper-image {
+  width: 100%;
+}
+.nav-container {
+  display: flex;
+  padding: 10rpx;
+}
+.nav-container .nav-inner {
+  flex: 1;
+}
+.nav-container .nav-inner img {
+  width: 100%;
+}

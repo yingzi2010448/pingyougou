@@ -1,0 +1,22 @@
+<view>
+    <!-- 搜索框跳转组件 -->
+    <searchInput></searchInput>
+
+    <!-- 轮播区域 -->
+    <view >
+        <swiper class="swiper-container" indicator-dots autoplay circular>
+            <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
+                <navigator>
+                    <image class="swiper-image" src="{{item.image_src}}" mode="widthFix" />
+                </navigator> 
+            </swiper-item>
+        </swiper>
+    </view>
+
+    <!-- 导航区域 -->
+    <view class="nav-container">
+        <navigator class="nav-inner" wx:for="{{catesList}}" wx:key="name" open-type="navigate">
+            <img src="{{item.image_src}}" mode="widthFix" />
+        </navigator>
+    </view>
+</view>
