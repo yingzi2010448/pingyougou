@@ -1,1 +1,104 @@
-/* pages/goods_detail/index.wxss */
+page {
+  background-color: #f2f2f2;
+  padding-bottom: 90rpx;
+}
+.goods-swiper swiper {
+  height: 65vw;
+  text-align: center;
+}
+.goods-swiper swiper image {
+  width: 60%;
+}
+.goods-introduce {
+  background-color: #fff;
+  border-bottom-left-radius: 18rpx;
+  border-bottom-right-radius: 18rpx;
+  padding: 12rpx 18rpx;
+}
+.goods-introduce .price-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10rpx 0;
+}
+.goods-introduce .price-wrap .goods-prcie {
+  color: #f22723;
+  font-size: 30rpx;
+  padding: 0 10rpx;
+}
+.goods-introduce .price-wrap .goods-prcie::before {
+  display: inline-block;
+  content: "";
+  height: 100%;
+  vertical-align: middle;
+}
+.goods-introduce .price-wrap .goods-collect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.goods-introduce .goods-title {
+  font-weight: 600;
+}
+.goods-info {
+  margin-top: 20rpx;
+  background-color: #fff;
+  border-top-left-radius: 18rpx;
+  border-top-right-radius: 18rpx;
+}
+.goods-info .goods-info-title {
+  font-size: 32rpx;
+  color: #f22723;
+  font-weight: 600;
+  padding: 20rpx;
+}
+.btm_tool {
+  border-top: 1rpx solid #ccc;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+  display: flex;
+}
+.btm_tool .tool_item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  position: relative;
+}
+.btm_tool .tool_item button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.btm_tool .btn_cart {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffa500;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.btm_tool .btn_buy {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eb4450;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 600;
+}

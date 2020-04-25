@@ -29,7 +29,7 @@ Page({
 
   // 获取轮播数据
   getswiperList() {
-    request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata' })
+    request({ url: '/home/swiperdata' })
       .then(res => {
         this.setData({
           swiperList: res.data.message
@@ -39,7 +39,7 @@ Page({
 
   //获取导航数据
   getcatesList() {
-    request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems' })
+    request({ url: '/home/catitems' })
       .then(res => {
         this.setData({
           catesList: res.data.message
@@ -48,7 +48,7 @@ Page({
   },
   //获取楼层数据
   getfloorList(){
-    request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata' })
+    request({ url: '/home/floordata' })
       .then(res => {
         this.setData({
           floorList: res.data.message

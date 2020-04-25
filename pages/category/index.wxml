@@ -1,3 +1,32 @@
-<view >
+<view class="category">
+   <!-- 搜索框组件 -->
    <searchInput></searchInput>
+
+   <view class="cates-container">
+      <!-- 左侧大分类 -->
+      <view class="left-inner">
+         <scroll-view class="left-scroll" scroll-y>
+            <view class="left-title {{index===currentIndex? 'active' :''}}" wx:for="{{leftList}}" wx:key="*this"
+            data-index="{{index}}" bindtap="changeLeft">
+               {{item}}
+            </view>
+         </scroll-view>
+      </view>
+      <!-- 右侧二，三级分类 -->
+      <scroll-view class="right-inner" scrollTop="{{scrollTop}}" scroll-y>
+          <view class="right-goods" wx:for="{{rightContent}}" wx:for-index="index1" 
+          wx:for-item="item1" wx:key="cat_id">
+              <view class="right-title">{{item1.cat_name}}</view>
+              <view class="right-list">
+                  <navigator wx:for="{{item1.children}}" wx:for-index="index2" wx:for-item="item2" 
+                  wx:for-index="index2" wx:key="cat_id" url="/pages/goods_list/index?cid={{item2.cat_id}}">
+                      <image mode="widthFix" src="{{item2.cat_icon}}" />
+                      <view class="goods-name">
+                          {{item2.cat_name}}
+                      </view>
+                  </navigator>
+              </view>
+          </view>
+      </scroll-view>
+   </view>
 </view>

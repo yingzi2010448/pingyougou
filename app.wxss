@@ -5,11 +5,15 @@ page,view,swiper,swiper-item,text,image,navigator{
   padding: 0;
   box-sizing: border-box;
 }
-/*
-定义主题颜色 
- */
  page{
+   /*
+  定义主题颜色 
+ */
    --themColor:#eb4450;
    font-size: 28rpx;
+   font-family: -apple-system,Helvetica,sans-serif;
+ }
 
+ image{
+   width: 100%;
  }

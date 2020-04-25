@@ -1,1 +1,44 @@
-/* pages/category/index.wxss */
+page {
+  height: 100%;
+}
+.category {
+  height: 100%;
+}
+.category .cates-container {
+  display: flex;
+  height: calc( 100vh - 90rpx );
+}
+.category .cates-container .left-inner {
+  flex: 2;
+}
+.category .cates-container .left-inner .left-scroll .left-title {
+  height: 80rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.category .cates-container .left-inner .left-scroll .active {
+  color: #eb4450;
+  border-left: 5rpx solid currentColor;
+}
+.category .cates-container .right-inner {
+  flex: 5;
+}
+.category .cates-container .right-inner .right-title {
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.category .cates-container .right-inner .right-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.category .cates-container .right-inner .right-list navigator {
+  width: 33.33%;
+  text-align: center;
+}
+.category .cates-container .right-inner .right-list navigator image {
+  width: 50%;
+}

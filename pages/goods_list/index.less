@@ -1,0 +1,32 @@
+.syn-tab{
+    .tab-nav{
+        display: flex;
+        border-bottom: 1px solid #ccc;
+        .tab-img{
+            flex: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            image{
+                width: 70%;
+            }
+        }
+        .tab-info{
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;           
+            .tab-title{
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp:2;
+            }
+            .tab-price{
+                font-size: 32rpx;
+                color: #eb4450;
+            }
+
+        }
+    }
+}
