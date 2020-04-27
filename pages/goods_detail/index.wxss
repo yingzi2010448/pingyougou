@@ -37,6 +37,7 @@ page {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-right: 20rpx;
 }
 .goods-introduce .goods-title {
   font-weight: 600;

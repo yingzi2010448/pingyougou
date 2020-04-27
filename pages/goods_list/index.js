@@ -17,7 +17,7 @@ Page({
       },
       {
         id: 2,
-        value:'价格',
+        value:'退款/退货',
         isActive: false
       }
     ],

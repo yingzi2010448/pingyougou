@@ -1,4 +1,4 @@
-export {getSetting, openSetting, chooseAddress, showModal, showToast, requestPayment }
+export {getSetting, openSetting, chooseAddress, showModal, showToast, requestPayment, login }
 
 const getSetting = () => {
     return new Promise((resolve, reject) => {
@@ -82,3 +82,17 @@ const requestPayment = (pay) => {
         });
     })
 }
+
+const login=()=>{
+    return new Promise((resolve,reject)=>{
+      wx.login({
+        timeout:10000,
+        success: (result) => {
+          resolve(result);
+        },
+        fail: (err) => {
+          reject(err);
+        }
+      });
+    })
+  }

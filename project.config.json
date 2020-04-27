@@ -93,6 +93,26 @@
 					"pathName": "pages/pay/index",
 					"query": "goods_id=43986",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/user/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单查询",
+					"pathName": "pages/order/index",
+					"query": "type=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品收藏",
+					"pathName": "pages/collect/index",
+					"scene": null
 				}
 			]
 		}

@@ -5,14 +5,17 @@ Page({
 
   
   data: {
-    goodsObj:{}
+    goodsObj:{},
+    isCollect: false
 
   },
 
   goodsInfo:{},
 
-  onLoad: function (options) {
-    const {goods_id} = options;
+  onShow: function () {
+    const pages = getCurrentPages();
+    const currentPage = pages[pages.length - 1]
+    const { goods_id } = currentPage.options;
     this.getgoodsObj(goods_id);
 
   },
@@ -22,13 +25,17 @@ Page({
     const res = await request({url:'/goods/detail', data: {goods_id} });
     const goods = res.data.message;
     this.goodsInfo = res.data.message;
+    let collectStorage = wx.getStorageSync('collectStorage') || [];
+    // 在商品对象中就表示被收藏过
+    let isCollect = collectStorage.some(i => i.goods_id === this.goodsInfo.goods_id);
     this.setData({
       goodsObj: {
         goods_name: goods.goods_name,
         goods_price: goods.goods_price,
         goods_introduce: goods.goods_introduce.replace(/\.webp/g, '.jpg'), //将.webp格式修改为.jpg格式
         pics: goods.pics,
-      }
+      },
+      isCollect
     });
   },
   
@@ -71,8 +78,36 @@ Page({
       mask: true,
     });
 
+  },
+  // 添加收藏
+  addCollect() {
+   let isCollect = false;
+   let collectStorage = wx.getStorageSync('collectStorage') || [];
+   let index = collectStorage.findIndex(i => i.goods_id === this.goodsInfo.goods_id);
+   if(index !== -1){
+     collectStorage.splice(index, 1);
+     isCollect = false;
+     wx.showToast({
+       title: '取消收藏成功',
+       icon: 'success',
+       mask: true
+     });
+   }else{
+     // 如果没找到，表明没有收藏过
+     collectStorage.push(this.goodsInfo);
+     isCollect = true;
+     wx.showToast({
+       title: '添加收藏成功',
+       icon: 'success',
+       mask: true
+     });
+     
+   }
+   
+   // 添加缓存
+   wx.setStorageSync('collectStorage', collectStorage );
+   
+   this.setData({isCollect});
   }
-
-
 
 })
