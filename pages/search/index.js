@@ -1,66 +1,57 @@
-// pages/search/index.js
+import regeneratorRuntime from '../../lib/runtime/runtime';
+import { request } from "../../request/index.js";
 Page({
 
-  /**
-   * 页面的初始数据
-   */
+  
   data: {
+    //满足的商品列表
+    searchList:[],
+    //取消框的显示
+    isFocus: false,
+    inputValue:''
 
   },
+  // 定时器
+  timeoutPoint: -1,
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  handleInput(e) {
+    const { value } = e.detail;
+    // 值校验，不能为空
+    if(!value.trim()) {
+      this.setData({
+        searchList:[],
+        isFocus:false
+      });
+      return
+    };
+    this.setData({isFocus:true});
+    // 节流措施
+    clearTimeout(this.timeoutPoint);
 
+    this.timeoutPoint = setTimeout(() =>{
+      this.searchGoods(value)
+    }, 1000)
+    // this.searchGoods(value);
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  
+  // 根据关键字搜索商品
+  async searchGoods(query) {
+    const res = await request({url:'/goods/search', data:{ query }});
+    this.setData({
+      searchList:res.data.message.goods
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  //取消搜索
+  handleCancel(){
+    //初始化数据
+    this.setData({
+      inputValue: '',
+      isFocus: false,
+      searchList:[]
+    });
   }
 })
