@@ -1,1 +1,1 @@
-# pingyougou  微信电商小程序
+# pingyougou  微信商城小程序
