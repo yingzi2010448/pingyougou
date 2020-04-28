@@ -6,7 +6,8 @@ Page({
     //初始化轮播图数据
     swiperList: [],
     //初始化导航数据
-    catesList: [],
+    catesList: [
+    ],
     floorList: []
 
   },

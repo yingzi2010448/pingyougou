@@ -35,7 +35,10 @@ Page({
   totalPages:1,
 
   onLoad: function (options) {
-    this.queryInfo.cid = options.cid;
+    // 点击商品列表进入
+    this.queryInfo.cid = options.cid ||'';
+    // 点击首页导航进入
+    this.queryInfo.query = options.query ||'';
     this.getgoodsList();
   },
   // 获取商品列表

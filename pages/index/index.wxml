@@ -6,7 +6,7 @@
     <view >
         <swiper class="swiper-container" indicator-dots autoplay circular>
             <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
-                <navigator>
+                <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
                     <image class="swiper-image" src="{{item.image_src}}" mode="widthFix" />
                 </navigator> 
             </swiper-item>
@@ -15,7 +15,7 @@
 
     <!-- 中间导航区域 -->
     <view class="nav-container">
-        <navigator class="nav-inner" wx:for="{{catesList}}" wx:key="name">
+        <navigator class="nav-inner" wx:for="{{catesList}}" wx:key="name" url="/pages/category/index" open-type="switchTab">
             <image src="{{item.image_src}}" mode="widthFix" />
         </navigator>
     </view>
@@ -27,7 +27,8 @@
                 <image src="{{item1.floor_title.image_src}}" mode="widthFix"/>
             </view>
             <view class="floor-list">
-                <navigator wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name">
+                <navigator wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name" 
+                url="{{util.urlFormat(item2.navigator_url)}}">
                     <image src="{{item2.image_src}}" mode="{{index2===0?'widthFix':'scaleToFill'}}" />
                 </navigator>
             </view>
